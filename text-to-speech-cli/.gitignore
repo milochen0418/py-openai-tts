@@ -1,0 +1,28 @@
+# Python bytecode
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+
+# Poetry virtual environment (if created inside project folder)
+.venv/
+
+# macOS 系統垃圾檔案
+.DS_Store
+
+# VSCode 設定（如你用 VSCode）
+.vscode/
+
+# dotenv API key
+.env
+openai_key.txt
+
+# Poetry lock file（選擇性忽略）
+# poetry.lock  通常應該要提交，方便團隊共用一致版本
+# 但如果你真的不想提交，才加這行：
+# poetry.lock
+
+#忽略生成的音頻文件
+output.mp3 
+*.mp3 

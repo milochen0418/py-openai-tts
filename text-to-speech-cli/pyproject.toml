@@ -1,0 +1,25 @@
+[project]
+name = "text-to-speech-cli"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "milochen0418",email = "milo_chen@mail2000.com.tw"}
+]
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "openai (>=1.93.0,<2.0.0)",
+    "python-dotenv (>=1.1.1,<2.0.0)"
+]
+
+[tool.poetry]
+packages = [{include = "text_to_speech_cli", from = "src"}]
+
+[tool.poetry.scripts]
+text-to-speech-cli = "text_to_speech_cli.__main__:main"
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
