@@ -93,3 +93,39 @@ text-to-speech-cli/
 ## License
 
 MIT License. See [LICENSE](LICENSE) for details.
+
+
+
+
+## Installing Poetry
+
+Poetry is used to manage dependencies and virtual environments for this project.
+
+### macOS & Linux
+
+Run the following command in your terminal:
+
+```bash
+curl -sSL https://install.python-poetry.org | python3 -
+```
+
+After installation, add Poetry to your PATH (if not already):
+
+```bash
+export PATH="$HOME/.local/bin:$PATH"
+```
+
+You may want to add the line above to your `~/.zshrc` or `~/.bashrc` file.
+
+### Windows
+
+1. Download and run the official installer from:  
+   [https://install.python-poetry.org](https://install.python-poetry.org)
+
+2. Restart your terminal, then test Poetry installation:
+
+```powershell
+poetry --version
+```
+
+More details and troubleshooting tips: [https://python-poetry.org/docs/](https://python-poetry.org/docs/)
