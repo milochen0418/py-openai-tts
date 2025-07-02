@@ -9,16 +9,19 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 # 支援的語音樣式
 VALID_VOICES = ["alloy", "echo", "fable", "onyx", "nova", "shimmer"]
 
-def text_to_speech(input_txt_path: str, output_mp3_path: str, voice: str = "nova") -> None:
+def text_to_speech(input_txt_path: str, output_mp3_path: str, voice: str = "nova", quality: str = "standard") -> None:
     """
     將文字檔轉換為語音 MP3
 
     :param input_txt_path: 要轉換的 .txt 檔案路徑
     :param output_mp3_path: 輸出的 .mp3 檔案路徑
     :param voice: 使用的語音樣式（預設：nova）
+    :param quality: 'standard' 使用 tts-1；'hd' 使用 tts-1-hd
     """
     if voice not in VALID_VOICES:
         raise ValueError(f"Invalid voice: '{voice}'. Must be one of {VALID_VOICES}")
+
+    model = "tts-1-hd" if quality == "hd" else "tts-1"
 
     # 讀取文字檔內容
     try:
@@ -33,7 +36,7 @@ def text_to_speech(input_txt_path: str, output_mp3_path: str, voice: str = "nova
     # 呼叫 OpenAI 的 TTS API
     try:
         response = openai.audio.speech.create(
-            model="tts-1",
+            model=model,
             voice=voice,
             input=text,
         )
@@ -46,5 +49,6 @@ def text_to_speech(input_txt_path: str, output_mp3_path: str, voice: str = "nova
             out_file.write(response.content)
     except Exception as e:
         raise RuntimeError(f"Failed to write output file: {e}")
-
-    print(f"✅ 成功轉換！MP3 已儲存於：{output_mp3_path}")
+    
+    # 成功訊息
+    print(f"✅ 成功轉換！模型: {model}，語音: {voice} → 檔案: {output_mp3_path}")
