@@ -2,14 +2,27 @@
 
 from .converter import text_to_speech
 
+AVAILABLE_VOICES = ["alloy", "echo", "fable", "onyx", "nova", "shimmer"]
+
 def main():
     import argparse
     parser = argparse.ArgumentParser(description="Convert .txt to .mp3 using OpenAI TTS API")
     parser.add_argument("input_txt", help="Path to input .txt file")
     parser.add_argument("output_mp3", help="Path to output .mp3 file")
-    parser.add_argument("--voice", default="nova", help="Voice style to use (default: nova)")
-    parser.add_argument("--quality", choices=["standard", "hd"], default="standard",
-                        help="Audio quality: 'standard' or 'hd' (default: standard)")
+    parser.add_argument(
+        "--voice",
+        default="nova",
+        help=(
+            "Voice style to use (default: nova). "
+            f"Available voices: {', '.join(AVAILABLE_VOICES)}"
+        )
+    )
+    parser.add_argument(
+        "--quality",
+        choices=["standard", "hd"],
+        default="standard",
+        help="Audio quality model: 'standard' = tts-1, 'hd' = tts-1-hd"
+    )
     
     args = parser.parse_args()
 
