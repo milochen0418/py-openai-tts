@@ -1,0 +1,18 @@
+[project]
+name = "text-to-speech-ui-project"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "milochen0418",email = "milo_chen@mail2000.com.tw"}
+]
+readme = "README.md"
+requires-python = ">=3.10,<4.0"
+dependencies = [
+    "reflex (==0.8.4)",
+    "openai (>=1.98.0,<2.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
