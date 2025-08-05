@@ -5,6 +5,9 @@ from typing import TypedDict
 from openai import OpenAI
 
 
+from dotenv import load_dotenv
+load_dotenv()  # for loading environment variables from .env file
+
 class AudioFile(TypedDict):
     filename: str
     text: str

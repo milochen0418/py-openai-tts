@@ -4,3 +4,9 @@ assets/external/
 *.db
 .states
 *.py[cod]
+
+# app uploaded files geenerated by open ai api
+uploaded_files/* 
+
+# python environment file, open ai api key 
+.env
